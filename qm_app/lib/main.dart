@@ -14,13 +14,19 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // hide "debug" banner from app
       debugShowCheckedModeBanner: false,
+      // title of the app e.g. as displayed in the app-switcher view
       title: 'QM App',
-      theme: primaryTheme,
+      // theme settings
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      themeMode: ThemeMode.light,
+      // default view and navigation details
       home: const ReportsPage(),
       routes: {
-        '/report_page': (context) => ReportPage(),
-        '/reports_page': (context) => ReportsPage(),
+        '/report': (context) => ReportPage(),
+        '/reports': (context) => ReportsPage(),
       },
     );
   }

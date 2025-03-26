@@ -1,22 +1,37 @@
 import 'package:flutter/material.dart';
 
-class AppColors {
-  static Color primaryColor = Colors.orange;
-  static Color primaryAccent = Colors.orangeAccent;
-  // static Color secondaryColor = ;
-  // static Color secondaryAccent = ;
-  // static Color titleColor = ;
-  // static Color textColor = ;
-  // static Color successColor = ;
-  // static Color highlightColor = ;
+const seedColor = Colors.blueGrey;
+
+ThemeData buildTheme(Brightness brightness) {
+  final ColorScheme colorScheme = ColorScheme.fromSeed(
+    seedColor: seedColor,
+    brightness: brightness,
+  );
+
+  final TextTheme textTheme;
+  if (brightness == Brightness.light) {
+    textTheme = Typography.blackMountainView;
+  } else {
+    textTheme = Typography.whiteMountainView;
+  }
+
+  return ThemeData(
+    colorScheme: colorScheme,
+    useMaterial3: true,
+    textTheme: textTheme,
+    appBarTheme: AppBarTheme(
+      backgroundColor: colorScheme.primary,
+      foregroundColor: colorScheme.onPrimary,
+      centerTitle: true,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: colorScheme.primary,
+        foregroundColor: colorScheme.onPrimary,
+      ),
+    ),
+  );
 }
 
-ThemeData primaryTheme = ThemeData(
-  colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
-  appBarTheme: AppBarTheme(
-    backgroundColor: AppColors.primaryAccent,
-    centerTitle: true,
-  ),
-);
-
-// Inspiration: https://github.com/iamshaunjp/flutter-masterclass/blob/lesson-83/lib/theme.dart
+final ThemeData lightTheme = buildTheme(Brightness.light);
+final ThemeData darkTheme = buildTheme(Brightness.dark);
