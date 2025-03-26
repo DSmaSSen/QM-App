@@ -7,10 +7,10 @@ class ReportPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Se denne rapport'),
+        title: const Text('Se! En rapport!'),
       ),
       body: Center(
-        child: const Text('Jeg er en rapport'),
+        child: const Text('Hej! Jeg er en rapport :)'),
       ),
     );
   }
