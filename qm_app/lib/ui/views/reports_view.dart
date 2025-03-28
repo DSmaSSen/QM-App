@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:qm_app/ui/view_models/reports_view_model.dart';
 
-class ReportsPage extends StatelessWidget {
-  const ReportsPage({super.key});
+class ReportsView extends StatelessWidget {
+  const ReportsView({super.key});
 
   @override
   Widget build(BuildContext context) {

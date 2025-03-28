@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ThemeBuilder {
+  // fields
   final Color seedColor;
 
+  // constructor
   ThemeBuilder({required this.seedColor});
 
+  // methods
   ThemeData build(Brightness brightness) {
     final colorScheme = ColorScheme.fromSeed(
       seedColor: seedColor,

@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
 import 'package:qm_app/theme_builder.dart';
-import 'package:qm_app/views/report_page.dart';
-import 'package:qm_app/views/reports_page.dart';
+import 'package:qm_app/ui/views/report_view.dart';
+import 'package:qm_app/ui/views/reports_view.dart';
 
 void main() {
   runApp(const App());
 }
 
 class App extends StatelessWidget {
+  // constructor
   const App({super.key});
 
+  // methods
   @override
   Widget build(BuildContext context) {
     final themeBuilder = ThemeBuilder(seedColor: Colors.blueGrey);
@@ -23,12 +25,12 @@ class App extends StatelessWidget {
       // theme settings
       theme: themeBuilder.build(Brightness.light),
       darkTheme: themeBuilder.build(Brightness.dark),
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       // default view and navigation details
-      home: const ReportsPage(),
+      home: const ReportsView(),
       routes: {
-        '/report': (context) => ReportPage(),
-        '/reports': (context) => ReportsPage(),
+        '/report': (context) => ReportView(),
+        '/reports': (context) => ReportsView(),
       },
     );
   }
